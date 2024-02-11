@@ -95,6 +95,50 @@ Add tint2 to Xfce session autostart. Run `xfce4-session-settings` in a terminal.
 You can modify tint2 panel. Run `tint2conf` in a terminal and double click on the first entry.
 
 ### Conky 👛
+#### Termux
+#### Install Proot-Distro on termux
+<p align="center">
+<img widht="80%" src="https://imagizer.imageshack.com/img923/6548/16Ue47.jpg"></p>
+
+<p align="center">
+<img widht="80%" src="https://imagizer.imageshack.com/img924/9174/u4oCNl.jpg"></p>
+
+#### install conky on proot distro
+```
+apt install conky
+git clone https://github.com/flyingcakes85/LoveBites
+cd LoveBites
+cp .config/conky/ /etc/ -r
+cd /etc/conky/
+mv conky.conf conky.conf.bak
+cp .conkyrc conky.conf
+```
+
+#### export conky to termux desktop
+```
+apt install xorg-xhost
+
+### create new file start vncserver
+nano $PREFIX/bin/vncstart
+
+add :
+vncserver -listen tcp :1 &&  DISPLAY=:1 xhost + > /dev/null 2>&1
+
+to off
+nano $PREFIX/bin/vncstop
+add :
+vncserver -kill :1
+```
+#### call conky in termux
+##### create app desktop conky
+```
+my proot distro debian
+add for command :
+proot-distro login debian --user tamvan --shared-tmp -- env DISPLAY=:1 conky
+or
+add on autostart
+```
+#### This original from fork 😁👇
 
 ```sh
 cp .config/conky ~/.config/ -r
