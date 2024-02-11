@@ -39,10 +39,17 @@ Open Xfwm Setting to change Xfwm theme to LoveBites.
 For design at bottom right, and the typography on sidebar
 
 ```sh
+cd ..
 mkdir -p ~/.config/gtk-3.0
 touch ~/.config/gtk-3.0/gtk.css
 cat .config/gtk-3.0/gtk.css >> ~/.config/gtk-3.0/gtk.css
 sed -i "s/YOURUSERNAME/$USER/g" ~/.config/gtk-3.0/gtk.css
+##TERMUX only replace sed
+cd
+pwd
+nano ~/.config/gtk-3.0/gtk.css
+add or replace in gtk.css 👉 /data/data/com.termux/files/home/
+
 cp .config/gtk-3.0/.assets ~/.config/gtk-3.0/ -r
 ```
 
